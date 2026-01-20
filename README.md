@@ -187,10 +187,6 @@ if (a > b) {
 The tokenizer (implemented by the tokenize function) iterates through the provided input to create a sequence of tokens - basic syntactic units - which are then stored in an array called "tokens". It does so by comparing a string element with a set of regular expressions and assigns it a corresponding value/type. The resulting token is then saved as an object in the token array. The function iterates through the finished token array a few more times afterwards to update generic token types to more specific ones (e.g. changing the token type to "KEYWORD" or "FUNCTION_CALL" instead of "IDENTIFIER"):
 
 
-#### Visualization of token array
-
-https://replit.com/@codexserenity/WaveTokenizerDemo#tokenizer_demo.js (Press the "Run" button to execute the tokenize function)
-
 ### Parser
 
 The parser (implemented by the parse function) uses the generated token array to construct an AST, or abstract syntax tree. The AST is a way to represent the abstract syntactic structure of the input text in form of a tree structure. This allows us to specify relations between syntactic units.
@@ -208,9 +204,6 @@ We define a node class and instantiate a node object for each element in the tok
   * Repeatedly obtains the node with an operator (e.g. "=", "<") as its value that has the highest operator precedence (realized by the function returnMaxPrecedence)
   * Connects the operator node with the left and right operand node by pushing both to the "next" property of the operator node (realized by the function connectExpressionNodes)
 
-#### Visualization of AST (abstract syntax tree)
-
-https://replit.com/@codexserenity/WaveParserDemo#parser_demo.js (Press the "Run" button to execute the parse function)
 
 ### Transformer
 
@@ -243,10 +236,6 @@ for i in range(0, 3):
 ### Generator
 
 The transformer (implemented by the generate function) performs multiple in-order tree traversals on the modified AST to generate the final output code in Python.
-
-#### Compiled Python code for example JavaScript input
-
-https://replit.com/@codexserenity/WaveCompilerDemo#compiler_demo.js (Press the "Run" button to execute the compiler)
 
 
 
